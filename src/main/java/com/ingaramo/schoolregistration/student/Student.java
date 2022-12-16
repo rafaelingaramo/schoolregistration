@@ -1,7 +1,10 @@
 package com.ingaramo.schoolregistration.student;
 
 import com.ingaramo.schoolregistration.course.Course;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -19,6 +22,9 @@ import java.util.Set;
 @Table
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +33,9 @@ public class Student {
 
     @Column(name="name", nullable = false, length = 100)
     private String name;
+
+    @Column(name="status", nullable = false)
+    private Boolean status;
 
     @ManyToMany(mappedBy = "students")
     Set<Course> studentCourses = new HashSet<>();

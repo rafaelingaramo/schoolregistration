@@ -1,21 +1,28 @@
 package com.ingaramo.schoolregistration.student;
 
 import lombok.NonNull;
+import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.stream.Collectors;
-
-public interface StudentConverter {
-    default Collection<StudentDto> toDtoList(@NonNull Collection<Student> studentCollection) {
-        return studentCollection.stream()
-                .map(this::toDto)
-                .collect(Collectors.toSet());
-    }
-
-    default StudentDto toDto(@NonNull Student student) {
+@Service
+public class StudentConverter {
+    public StudentDto toDto(@NonNull Student student) {
         return StudentDto.builder()
                 .id(student.getId())
                 .name(student.getName())
+                .build();
+    }
+
+    public Student toNewEntity(StudentDto studentDto) {
+        return Student.builder()
+                .name(studentDto.getName())
+                .status(true)
+                .build();
+    }
+
+    public Student toEntity(StudentDto studentDto) {
+        return Student.builder()
+                .id(studentDto.getId())
+                .name(studentDto.getName())
                 .build();
     }
 }
