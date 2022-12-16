@@ -1,14 +1,24 @@
 package com.ingaramo.schoolregistration.student;
 
+import com.ingaramo.schoolregistration.course.CourseConverter;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+
 @Service
+@RequiredArgsConstructor
 public class StudentConverter {
+    private final CourseConverter courseConverter;
+
     public StudentDto toDto(@NonNull Student student) {
         return StudentDto.builder()
                 .id(student.getId())
                 .name(student.getName())
+                .courses(student.getStudentCourses()
+                        .stream().map(courseConverter::toDto)
+                        .collect(Collectors.toSet()))
                 .build();
     }
 

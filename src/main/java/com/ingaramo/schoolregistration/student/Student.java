@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,8 @@ public class Student {
     @Column(name="status", nullable = false)
     private Boolean status;
 
+    @Builder.Default
     @ManyToMany(mappedBy = "students")
+    @Where(clause = "status = true")
     Set<Course> studentCourses = new HashSet<>();
 }
