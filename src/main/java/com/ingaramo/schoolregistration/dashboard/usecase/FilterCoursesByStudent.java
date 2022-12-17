@@ -19,7 +19,7 @@ public class FilterCoursesByStudent {
     private final CourseConverter courseConverter;
 
     public Set<CourseDto> execute(Integer studentId) {
-        Student student = repository.findById(studentId)
+        Student student = repository.findByIdAndStatus(studentId, true)
                 .orElseThrow(() -> new InvalidStudentIdException("Invalid id provided"));
 
         if (student.getStudentCourses() == null || student.getStudentCourses().isEmpty()) {
