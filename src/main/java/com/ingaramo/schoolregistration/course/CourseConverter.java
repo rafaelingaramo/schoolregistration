@@ -13,6 +13,13 @@ public class CourseConverter {
                 .build();
     }
 
+    public CourseDto toDto(@NonNull CourseProjection course) {
+        return CourseDto.builder()
+                .id(course.getId())
+                .name(course.getName())
+                .build();
+    }
+
     public Course toNewEntity(CourseDto courseDto) {
         return Course.builder()
                 .name(courseDto.getName())

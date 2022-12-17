@@ -1,4 +1,10 @@
 spring:
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
   datasource:
     url: jdbc:mysql://localhost:3306/schoolregistration
     username: schoolregistration
@@ -6,3 +12,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
+
+application:
+  maximumStudentsPerCourse: 50
+  maximumCoursesPerStudent: 5

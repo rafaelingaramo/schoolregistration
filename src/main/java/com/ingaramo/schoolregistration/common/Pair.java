@@ -1,4 +1,4 @@
-package com.ingaramo.schoolregistration.course;
+package com.ingaramo.schoolregistration.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,10 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseDto {
-    private Integer id;
-    private String name;
+public class Pair<A,B> {
+    private A first;
+    private B second;
 }

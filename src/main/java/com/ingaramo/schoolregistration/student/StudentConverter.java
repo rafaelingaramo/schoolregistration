@@ -22,17 +22,17 @@ public class StudentConverter {
                 .build();
     }
 
+    public StudentDto toDto(@NonNull StudentProjection student) {
+        return StudentDto.builder()
+                .id(student.getId())
+                .name(student.getName())
+                .build();
+    }
+
     public Student toNewEntity(StudentDto studentDto) {
         return Student.builder()
                 .name(studentDto.getName())
                 .status(true)
-                .build();
-    }
-
-    public Student toEntity(StudentDto studentDto) {
-        return Student.builder()
-                .id(studentDto.getId())
-                .name(studentDto.getName())
                 .build();
     }
 }

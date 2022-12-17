@@ -1,11 +1,11 @@
 package com.ingaramo.schoolregistration.student.entrypoint;
 
 import com.ingaramo.schoolregistration.student.StudentDto;
-import com.ingaramo.schoolregistration.student.exception.usecase.DeleteStudent;
-import com.ingaramo.schoolregistration.student.exception.usecase.EditStudent;
-import com.ingaramo.schoolregistration.student.exception.usecase.FindAllStudents;
-import com.ingaramo.schoolregistration.student.exception.usecase.GetStudent;
-import com.ingaramo.schoolregistration.student.exception.usecase.SaveStudent;
+import com.ingaramo.schoolregistration.student.usecase.DeleteStudent;
+import com.ingaramo.schoolregistration.student.usecase.EditStudent;
+import com.ingaramo.schoolregistration.student.usecase.FindAllStudents;
+import com.ingaramo.schoolregistration.student.usecase.GetStudent;
+import com.ingaramo.schoolregistration.student.usecase.SaveStudent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +31,7 @@ public class StudentController {
     private final GetStudent getStudent;
     private final DeleteStudent deleteStudent;
 
-    @GetMapping(params = {"page", "size"})
+    @GetMapping
     public Set<StudentDto> getStudentList(@RequestParam(value = "page", defaultValue = "0") int page,
                                         @RequestParam(value = "size", defaultValue = "10") int size) {
         return findAllStudents.execute(page, size);

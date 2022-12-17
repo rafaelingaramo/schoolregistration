@@ -14,7 +14,7 @@ public class GetCourse {
     private final CourseConverter converter;
 
     public CourseDto execute(Integer id) {
-        return repository.findById(id)
+        return repository.findByIdAndStatus(id, true)
                 .map(converter::toDto)
                 .orElseThrow(() -> new InvalidCourseIdException("Invalid id provided: " + id));
     }

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableAutoConfiguration
+@EnableJpaRepositories(basePackages = "com.ingaramo.schoolregistration")
 public class SchoolRegistrationApplication {
 
 	public static void main(String[] args) {

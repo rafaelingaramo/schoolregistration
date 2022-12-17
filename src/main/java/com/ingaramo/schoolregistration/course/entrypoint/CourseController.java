@@ -32,7 +32,7 @@ public class CourseController {
     private final GetCourse getCourse;
     private final DeleteCourse deleteCourse;
 
-    @GetMapping(params = {"page", "size"})
+    @GetMapping
     public Set<CourseDto> getCourseList(@RequestParam(value = "page", defaultValue = "0") int page,
                                         @RequestParam(value = "size", defaultValue = "10") int size) {
         return findAllCourses.execute(page, size);

@@ -1,4 +1,4 @@
-package com.ingaramo.schoolregistration.student.exception.usecase;
+package com.ingaramo.schoolregistration.student.usecase;
 
 import com.ingaramo.schoolregistration.student.StudentConverter;
 import com.ingaramo.schoolregistration.student.StudentDto;
@@ -14,7 +14,7 @@ public class GetStudent {
     private final StudentConverter converter;
 
     public StudentDto execute(Integer id) {
-        return repository.findById(id)
+        return repository.findByIdAndStatus(id, true)
                 .map(converter::toDto)
                 .orElseThrow(() -> new InvalidStudentIdException("Invalid id provided: " + id));
     }

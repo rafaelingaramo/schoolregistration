@@ -1,4 +1,4 @@
-package com.ingaramo.schoolregistration.student.exception.usecase;
+package com.ingaramo.schoolregistration.student.usecase;
 
 import com.ingaramo.schoolregistration.student.Student;
 import com.ingaramo.schoolregistration.student.StudentConverter;
