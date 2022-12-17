@@ -11,8 +11,8 @@ Design and implement simple school registration system
 - A student can register to 5 course maximum
 
 Provide the following REST API:
-- Create students CRUD :ok
-- Create courses CRUD :ok
+- Create students CRUD 
+- Create courses CRUD 
 - Create API for students to register to courses
 - Create abilities for user to view all relationships between students and courses
 + Filter all students with a specific course

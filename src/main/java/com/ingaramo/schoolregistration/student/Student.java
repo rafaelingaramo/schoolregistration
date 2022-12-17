@@ -3,6 +3,7 @@ package com.ingaramo.schoolregistration.student;
 import com.ingaramo.schoolregistration.course.Course;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,10 +26,12 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", nullable = false)
+    @EqualsAndHashCode.Include
     private Integer id;
 
     @Column(name="name", nullable = false, length = 100)

@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface CourseRepository extends JpaRepository<Course, Integer> {
-    Page<Course> findAllByStatus(Pageable pageable, boolean status);
+    Page<Course> findAllByStatus(Pageable pageable, Boolean status);
 
     @Query(value = " SELECT COUNT(distinct s.id)" +
             "          FROM course c" +

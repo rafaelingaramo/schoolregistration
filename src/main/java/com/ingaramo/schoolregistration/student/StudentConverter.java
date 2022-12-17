@@ -35,4 +35,12 @@ public class StudentConverter {
                 .status(true)
                 .build();
     }
+
+    public Student toEntity(StudentDto studentDto) {
+        return Student.builder()
+                .id(studentDto.getId())
+                .name(studentDto.getName())
+                .status(true)
+                .build();
+    }
 }
