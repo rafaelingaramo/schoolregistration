@@ -22,9 +22,9 @@ public class ValidateCourseEnroll {
     private final CourseRepository courseRepository;
     private final StudentRepository studentRepository;
     @Value("${application.maximumCoursesPerStudent:5}")
-    private Integer maximumCoursesPerStudent;
+    protected Integer maximumCoursesPerStudent;
     @Value("${application.maximumStudentsPerCourse:50}")
-    private Integer maximumStudentsPerCourse;
+    protected Integer maximumStudentsPerCourse;
 
     public Pair<Student, Course> execute(Integer courseId, Integer studentId) {
         Course course = validateCourseRules(courseId);

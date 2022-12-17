@@ -7,7 +7,6 @@ import com.ingaramo.schoolregistration.student.StudentDto;
 import com.ingaramo.schoolregistration.student.StudentRepository;
 import com.ingaramo.schoolregistration.student.exception.InvalidStudentException;
 import com.ingaramo.schoolregistration.student.exception.InvalidStudentIdException;
-import com.ingaramo.schoolregistration.student.usecase.EditStudent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ import java.util.UUID;
 public class EditStudentTest {
     private static final Integer NONEXISTENT_ID = 999;
     private static final Integer VALID_ID = 1;
-    private static final Student VALID_SAVED_COURSE = Student.builder()
+    private static final Student VALID_SAVED_STUDENT = Student.builder()
             .id(VALID_ID)
             .name(UUID.randomUUID().toString())
             .build();
@@ -31,8 +30,8 @@ public class EditStudentTest {
     @BeforeEach
     public void setUp() {
         Mockito.when(repository.findById(NONEXISTENT_ID)).thenReturn(Optional.empty());
-        Mockito.when(repository.findById(VALID_ID)).thenReturn(Optional.ofNullable(VALID_SAVED_COURSE));
-        Mockito.when(repository.save(Mockito.any())).thenReturn(VALID_SAVED_COURSE);
+        Mockito.when(repository.findById(VALID_ID)).thenReturn(Optional.ofNullable(VALID_SAVED_STUDENT));
+        Mockito.when(repository.save(Mockito.any())).thenReturn(VALID_SAVED_STUDENT);
     }
 
     @Test

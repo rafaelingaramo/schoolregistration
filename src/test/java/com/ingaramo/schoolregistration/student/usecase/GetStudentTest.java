@@ -17,7 +17,7 @@ import java.util.UUID;
 public class GetStudentTest {
     private final Integer NONEXISTENT_ID = 999;
     private final Integer EXISTENT_ID = 1;
-    private final Student VALID_COURSE = Student.builder()
+    private final Student VALID_STUDENT = Student.builder()
             .id(EXISTENT_ID)
             .name(UUID.randomUUID().toString())
             .build();
@@ -30,7 +30,7 @@ public class GetStudentTest {
     @BeforeEach
     public void setUp() {
         Mockito.when(repository.findByIdAndStatus(NONEXISTENT_ID, true)).thenReturn(Optional.empty());
-        Mockito.when(repository.findByIdAndStatus(EXISTENT_ID, true)).thenReturn(Optional.ofNullable(VALID_COURSE));
+        Mockito.when(repository.findByIdAndStatus(EXISTENT_ID, true)).thenReturn(Optional.ofNullable(VALID_STUDENT));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class GetStudentTest {
 
         //then
         assert execute != null;
-        assert execute.getId().equals(VALID_COURSE.getId());
-        assert execute.getName().equals(VALID_COURSE.getName());
+        assert execute.getId().equals(VALID_STUDENT.getId());
+        assert execute.getName().equals(VALID_STUDENT.getName());
     }
 }
