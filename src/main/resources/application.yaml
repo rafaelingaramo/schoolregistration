@@ -6,7 +6,7 @@ spring:
         format_sql: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/schoolregistration
+    url: jdbc:mysql://host.docker.internal:3306/schoolregistration
     username: schoolregistration
     password: schoolregistration
     driverClassName: com.mysql.cj.jdbc.Driver
